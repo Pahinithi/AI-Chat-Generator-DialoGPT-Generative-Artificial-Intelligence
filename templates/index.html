@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with DialoGPT</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to AI Conversations</h1>
+            <p>Start chatting with an AI-powered chatbot powered by DialoGPT!</p>
+        </header>
+
+        <section class="form-section">
+            <form action="/generate" method="post" class="form">
+                <div class="input-group">
+                    <label for="input_text">What's on your mind?</label>
+                    <input type="text" id="input_text" name="input_text" placeholder="Ask anything you like..." required>
+                </div>
+
+                <button type="submit">Generate Response</button>
+            </form>
+        </section>
+
+        <!-- Display generated response if available -->
+        {% if generated_responses %}
+        <section class="result">
+            <h2>Here’s what the AI has to say:</h2>
+            <div class="responses">
+                {% for response in generated_responses %}
+                <p>{{ response }}</p>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>Developed by Nithilan | Powered by DialoGPT</p>
+    </footer>
+</body>
+</html>
